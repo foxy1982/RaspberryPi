@@ -21,5 +21,5 @@ def error_404(error):
 
 if __name__ == "__main__":
     app.debug = False
-    app.run("0.0.0.0", 10000)
+    app.run("0.0.0.0", 60000)
 
