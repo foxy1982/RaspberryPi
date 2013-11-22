@@ -10,6 +10,7 @@ DEBUG = False
 SECRET_KEY = "development_key"
 USERNAME = "admin"
 PASSWORD = "admin"
+MAX_ENTRIES = 100
 
 #create application
 app = Flask(__name__)
@@ -23,6 +24,14 @@ def init_db():
 
 def connect_db():
     return sqlite3.connect(app.config["DATABASE"])
+
+def can_add_new_entry():
+    cur = g.db.execute('select count(1) from entries')
+    count = cur.fetchone()[0]
+    if count >= MAX_ENTRIES:
+        return False
+    else:
+        return True
 
 @app.before_request
 def before_request():
@@ -49,9 +58,12 @@ def clear_entries():
 def add_entry():
     if not session.get('logged_in'):
         abort(401)
-    g.db.execute('insert into entries (title, text) values (?, ?)', [request.form['title'], request.form['text']])
-    g.db.commit()
-    flash('New entry was successfully posted')
+    if not can_add_new_entry():
+        flash('Cannot add new entry, database full')
+    else:
+        g.db.execute('insert into entries (title, text) values (?, ?)', [request.form['title'], request.form['text']])
+        g.db.commit()
+        flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
 
 @app.route('/login', methods=['GET', 'POST'])
