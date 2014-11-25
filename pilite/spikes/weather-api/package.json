@@ -1,0 +1,12 @@
+{
+  "name": "weather-api-spike",
+  "version": "0.1.0",
+  "main": "./weather.js",
+  "dependencies": {
+    "request": "*",
+    "underscore": "*"
+  },
+  "scripts": {
+    "start": "node weather.js"
+  }
+}
