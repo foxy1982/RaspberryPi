@@ -1,7 +1,7 @@
 var request = require('request'),
  	_ = require('underscore');
 
-request.get('https://api.forecast.io/forecast/c2e8234912c1eb9e429da907bcf84047/53.4667,2.2333', function(error, response, body) {
+request.get('https://api.forecast.io/forecast/c2e8234912c1eb9e429da907bcf84047/53.4667,-2.2333', function(error, response, body) {
 	if (error !== null) {
 		return console.log('error');
 	}
