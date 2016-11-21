@@ -1,0 +1,10 @@
+---
+
+- name: Ansible Playbook for configuring brand new Raspberry Pi with weather hat
+
+  hosts: pi
+  roles:
+    - weather-hat
+    - webserver
+  remote_user: pi
+  become: yes
