@@ -5,3 +5,7 @@
     - git
     - leafpad
   become: yes
+
+- name: Install SenseHAT examples
+  git: repo=git@github.com:bennuttall/sense-hat-examples.git
+       dest=/src/sense-hat-examples
