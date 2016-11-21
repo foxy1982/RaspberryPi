@@ -7,6 +7,6 @@
   become: yes
 
 - name: Install SenseHAT examples
-  git: repo=git@github.com:bennuttall/sense-hat-examples.git
+  git: repo=https://github.com/bennuttall/sense-hat-examples.git
        dest=/src/sense-hat-examples
        accept_hostkey=yes
