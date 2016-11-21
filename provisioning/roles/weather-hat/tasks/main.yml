@@ -11,7 +11,7 @@
        dest=/src/bennuttall/sense-hat-examples
        accept_hostkey=yes
 
-- name: Install SenseHAT examples
+- name: Install foxy1982 repository
   git: repo=https://github.com/foxy1982/RaspberryPi.git
        dest=/src/foxy1982/RaspberryPi
        accept_hostkey=yes
