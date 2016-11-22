@@ -28,3 +28,5 @@ _image_map = {
 def get_images(name):
   return _image_map.get(name, default.get_images())
 
+def get_all_images():
+  return _image_map.values()

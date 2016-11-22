@@ -4,6 +4,7 @@ import icon_mapper
 
 sense = SenseHat()
 sense.clear()
+sense.rotation = 180
 
 import json
 import requests
@@ -16,7 +17,6 @@ while True:
     jData = json.loads(response.content)
 
     current = jData['currently']['icon']
-    print current
 
     max_counter = 60 * 5
     counter = 0
