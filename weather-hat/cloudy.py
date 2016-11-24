@@ -1,2 +1,2 @@
 def get_images():
-  return [['./cloud.png', 10]]
+  return [['./cloudy.png', 10]]
