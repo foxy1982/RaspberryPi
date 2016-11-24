@@ -4,5 +4,6 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python /src/foxy1982/RaspberryPi/weather-hat/main.py
-ExecStopPost=/usr/bin/python /src/foxy1982/RaspberryPi/weather-hat/clear.py
+WorkingDirectory=/src/foxy1982/RaspberryPi/weather-hat
+ExecStart=/usr/bin/python ./main.py
+ExecStopPost=/usr/bin/python ./clear.py
