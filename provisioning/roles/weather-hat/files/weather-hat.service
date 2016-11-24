@@ -1,0 +1,8 @@
+[Unit]
+Description=Weather hat for Raspberry Pi
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=python /src/foxy1982/RaspberryPi/weather-hat/main.py
+ExecStopPost=python /src/foxy1982/RaspberryPi/weather-hat/clear.py
