@@ -24,9 +24,9 @@ while True:
         icon = icon_mapper.get_images(current)
 
         for icon_frame in icon:
-            sense.set_pixels(icon_frame)
+            sense.load_image(icon_frame[0])
             counter = counter + 1
-            sleep(1)
+            sleep(icon_frame[1])
 
   else:
     sense.show_message('ERROR', text_colour=[255,0,0])
