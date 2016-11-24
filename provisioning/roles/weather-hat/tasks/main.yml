@@ -1,11 +1,4 @@
 ---
-- name: Install tools
-  apt: name="{{item}}" state=present
-  with_items:
-    - git
-    - leafpad
-  become: yes
-
 - name: Install SenseHAT examples
   git: repo=https://github.com/bennuttall/sense-hat-examples.git
        dest=/src/bennuttall/sense-hat-examples

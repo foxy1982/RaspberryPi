@@ -9,7 +9,6 @@ import cloudy
 import partly_cloudy_day
 import partly_cloudy_night
 import thunderstorm
-import default
 
 _image_map = {
   'clear-day': sun.get_images(),

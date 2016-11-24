@@ -4,6 +4,7 @@
 
   hosts: pi
   roles:
+    - development
     - weather-hat
     - webserver
   remote_user: pi
