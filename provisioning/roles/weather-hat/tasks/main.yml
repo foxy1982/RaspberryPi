@@ -6,6 +6,14 @@
     - leafpad
   become: yes
 
+- name: Set foxy1982 repository file permissions
+  file: path=/src
+        state=directory
+        owner=pi
+        group=pi
+        mode=0755
+        recurse=yes
+
 - name: Install SenseHAT examples
   git: repo=https://github.com/bennuttall/sense-hat-examples.git
        dest=/src/bennuttall/sense-hat-examples
@@ -15,14 +23,6 @@
   git: repo=https://github.com/foxy1982/RaspberryPi.git
        dest=/src/foxy1982/RaspberryPi
        accept_hostkey=yes
-
-- name: Set foxy1982 repository file permissions
-  file: path=/src
-        state=directory
-        owner=pi
-        group=pi
-        mode=0755
-        recurse=yes
 
 - name: Install weather-hat service script
   copy: src=weather-hat.conf
