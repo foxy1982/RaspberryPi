@@ -9,13 +9,11 @@
 - name: Install SenseHAT examples
   git: repo=https://github.com/bennuttall/sense-hat-examples.git
        dest=/src/bennuttall/sense-hat-examples
-       force=yes
        accept_hostkey=yes
 
 - name: Install foxy1982 repository
   git: repo=https://github.com/foxy1982/RaspberryPi.git
        dest=/src/foxy1982/RaspberryPi
-       force=yes
        accept_hostkey=yes
 
 - name: Set foxy1982 repository file permissions
@@ -23,9 +21,9 @@
         state=directory
         owner=pi
         group=pi
-        mode=0755
+        mode=0777
         recurse=yes
-        
+
 - name: Install weather-hat service script
   copy: src=weather-hat.service
         dest=/lib/systemd/system/weather-hat.service
