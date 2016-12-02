@@ -3,6 +3,7 @@ Description=Weather hat for Raspberry Pi
 After=network.target
 
 [Service]
+Environment="FORECAST_KEY={{ forecast.key }}"
 Type=simple
 WorkingDirectory=/src/foxy1982/RaspberryPi/weather-hat
 ExecStart=/usr/bin/python ./main.py

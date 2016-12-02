@@ -22,8 +22,9 @@
        accept_hostkey=yes
 
 - name: Install weather-hat service script
-  copy: src=weather-hat.service
-        dest=/lib/systemd/system/weather-hat.service
+  template:
+    src: weather-hat.service.j2
+    dest: /lib/systemd/system/weather-hat.service
 
 - name: Start weather-hat service
   service: name=weather-hat
