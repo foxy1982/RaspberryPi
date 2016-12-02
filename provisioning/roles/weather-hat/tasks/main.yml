@@ -7,6 +7,9 @@
   lineinfile:
     dest: /etc/environment
     line: FORECAST_KEY={{ forecast.key }}
+    notify:
+      - Restart server
+      - Wait for server to restart
 
 - name: Install SenseHAT examples
   git: repo=https://github.com/bennuttall/sense-hat-examples.git
