@@ -1,6 +1,8 @@
 from sense_hat import SenseHat
 from time import sleep
 import icon_mapper
+import os
+import sys
 
 sense = SenseHat()
 sense.clear()
@@ -9,8 +11,18 @@ sense.rotation = 180
 import json
 import requests
 
+try:
+  forecast_key = os.environ['FORECAST_KEY']
+except KeyError as e:
+  print 'FORECAST_KEY not set'
+  sys.exit(1)
+
+latitude = os.getenv('FORECAST_LATITUDE', 53.4667)
+longitude = os.getenv('FORECAST_LONGITUDE', -2.2333)
+
+url = 'https://api.darksky.net/forecast/%s/%s,%s' % (forecast_key, latitude, longitude)
+
 while True:
-  url = 'https://api.forecast.io/forecast/c2e8234912c1eb9e429da907bcf84047/53.4667,-2.2333'
   response = requests.get(url)
 
   if(response.ok):
