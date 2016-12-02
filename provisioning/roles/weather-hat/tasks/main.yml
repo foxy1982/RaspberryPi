@@ -1,4 +1,13 @@
 ---
+- include_vars:
+    file: forecast.yml
+    name: forecast
+
+- name: Set environment variables
+  lineinfile:
+    dest: /etc/environment
+    line: FORECAST_KEY={{ forecast.key }}
+
 - name: Install SenseHAT examples
   git: repo=https://github.com/bennuttall/sense-hat-examples.git
        dest=/src/bennuttall/sense-hat-examples
